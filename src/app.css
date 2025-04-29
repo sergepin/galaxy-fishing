@@ -1,1 +1,280 @@
 @import "tailwindcss";
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+@import 'nes.css/css/nes.min.css';
+
+/* Legend of Zelda inspired color scheme */
+:root {
+    /* Main colors */
+    --primary-color: #4CAF50;    /* Zelda Green */
+    --secondary-color: #FFD700;  /* Zelda Gold */
+    --accent-color: #2196F3;     /* Zelda Blue */
+    
+    /* Status colors */
+    --success-color: #8BC34A;    /* Light Green */
+    --warning-color: #FFC107;    /* Amber */
+    --error-color: #F44336;      /* Red */
+    
+    /* Background and text */
+    --background-color: #0a192f; /* Deep Blue Night */
+    --surface-color: #112240;    /* Darker Blue */
+    --text-color: #e6f1ff;
+    --text-secondary: #8892b0;
+    --text-dark: #000000;
+    
+    /* Zelda specific colors */
+    --triforce-gold: #FFD700;
+    --heart-red: #FF5252;
+    --rupee-green: #4CAF50;
+    --rupee-blue: #2196F3;
+    --rupee-red: #F44336;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Press Start 2P', cursive;
+    line-height: 1.8;
+    background-image: 
+        linear-gradient(45deg, var(--surface-color) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--surface-color) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--surface-color) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--surface-color) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--surface-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 0;
+}
+
+/* Custom animations */
+/* Eliminado la animación de pixelación que causaba el efecto de salto */
+/* @keyframes pixelate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+} */
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px var(--triforce-gold); }
+    50% { box-shadow: 0 0 20px var(--triforce-gold); }
+    100% { box-shadow: 0 0 5px var(--triforce-gold); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.nes-container {
+    animation: pixelate 0.3s ease-in-out;
+    background-color: var(--surface-color);
+    border-color: var(--primary-color) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.nes-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 45%, var(--triforce-gold) 49%, transparent 51%);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Fix NES.css text colors */
+.nes-balloon {
+    background-color: #ffffff !important;
+    color: var(--text-dark) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.nes-balloon::before {
+    border-color: #ffffff transparent transparent transparent;
+}
+
+.nes-container.is-dark {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    border-color: var(--secondary-color) !important;
+}
+
+.nes-container.is-dark::before,
+.nes-container.is-dark::after {
+    background-color: var(--surface-color);
+}
+
+/* Custom text colors */
+.nes-text.is-primary {
+    color: var(--rupee-green) !important;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.nes-text.is-success {
+    color: var(--success-color) !important;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.nes-text.is-warning {
+    color: var(--triforce-gold) !important;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.nes-text.is-error {
+    color: var(--heart-red) !important;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.nes-text.is-disabled {
+    color: var(--text-secondary) !important;
+}
+
+/* Improve readability */
+.nes-text {
+    line-height: 1.5;
+}
+
+.nes-container.with-title {
+    padding-top: 2rem;
+}
+
+.nes-container.with-title > .title {
+    background-color: var(--surface-color);
+    color: var(--triforce-gold);
+    padding: 0.5rem 1rem;
+    border-color: var(--primary-color) !important;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+    @apply text-lg sm:text-xl md:text-2xl font-bold;
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+    display: block;
+    margin: -2rem auto 1rem;
+    width: fit-content;
+}
+
+/* Custom list styles */
+.lists {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4;
+}
+
+/* Improve table readability */
+.nes-table {
+    color: var(--text-color);
+    @apply w-full;
+    border-color: var(--primary-color) !important;
+}
+
+.nes-table th {
+    background-color: #ffffff !important;
+    color: var(--text-dark) !important;
+    @apply px-2 py-3 text-xs sm:text-sm md:text-base;
+    border-color: var(--primary-color) !important;
+}
+
+.nes-table td {
+    background-color: #ffffff !important;
+    color: var(--text-dark) !important;
+    @apply px-2 py-3 text-xs sm:text-sm md:text-base;
+    border-color: var(--primary-color) !important;
+}
+
+/* Responsive text sizes */
+.nes-text {
+    @apply text-xs sm:text-sm md:text-base;
+}
+
+/* Container padding */
+.nes-container {
+    @apply p-2 sm:p-4 md:p-6;
+}
+
+/* Title sizes */
+.title {
+    @apply text-sm sm:text-base md:text-lg;
+}
+
+/* Custom button styles */
+.nes-btn {
+    background-color: var(--surface-color) !important;
+    color: var(--text-color) !important;
+    border-color: var(--primary-color) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.nes-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 45%, var(--triforce-gold) 49%, transparent 51%);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.nes-btn:hover {
+    background-color: var(--primary-color) !important;
+    color: var(--text-color) !important;
+    animation: pulse 1s infinite;
+}
+
+/* Custom icon colors */
+.nes-icon {
+    color: var(--triforce-gold) !important;
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
+}
+
+/* Loading animation */
+@keyframes triforce-spin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+.loading-icon {
+    animation: triforce-spin 2s infinite;
+    color: var(--triforce-gold);
+}
+
+/* Item title styles */
+.item-title {
+    @apply text-base sm:text-lg md:text-xl font-bold;
+    color: var(--triforce-gold) !important;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Description styles */
+.item-description {
+    @apply text-sm sm:text-base;
+    color: var(--text-secondary) !important;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.5;
+}
