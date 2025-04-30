@@ -1,9 +1,10 @@
 <script lang="ts">
     import type { Player } from '../types';
-    import { onMount } from 'svelte';
     import { fetchWithCache, fetchLeaderboard } from '../api';
+    import { onMount } from 'svelte';
 
     let players: Player[] = [];
+    let showAll = false;
     let loading = true;
     let error: string | null = null;
 
@@ -18,6 +19,12 @@
             loading = false;
         }
     });
+
+    const toggleShowAll = () => {
+        showAll = !showAll;
+    };
+
+    $: displayedPlayers = showAll ? players : players.slice(0, 10);
 </script>
 
 <div class="nes-container with-title is-centered w-full">
@@ -45,7 +52,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {#each players as player}
+                    {#each displayedPlayers as player}
                         <tr>
                             <td class="text-black">{player.rank}</td>
                             <td class="text-black truncate max-w-[100px] sm:max-w-[150px] md:max-w-[200px]">{player.username}</td>
@@ -57,6 +64,13 @@
                 </tbody>
             </table>
         </div>
+        {#if players.length > 10}
+            <div class="flex justify-center mt-4">
+                <button class="nes-btn is-primary" on:click={toggleShowAll}>
+                    {showAll ? 'Show Top 10' : 'Show All Players'}
+                </button>
+            </div>
+        {/if}
     {/if}
 </div>
 
