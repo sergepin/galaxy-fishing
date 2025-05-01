@@ -39,9 +39,9 @@
                     <div class="nes-container with-title flex-1 flex flex-col">
                         <p class="item-title">{item.name}</p>
                         <p class="item-description flex-1">{item.description}</p>
+                        <span class="nes-text is-info text-xs sm:text-sm mt-1">Type: {item.type}</span>
                         <div class="nes-container is-rounded is-dark mt-2">
-                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-                                <span class="nes-text is-primary text-xs sm:text-sm truncate">Type: {item.type}</span>
+                            <div class="flex justify-center">
                                 <span class="nes-text is-warning text-xs sm:text-sm whitespace-nowrap">{item.cost} gold</span>
                             </div>
                         </div>
@@ -59,10 +59,9 @@
         gap: 1rem;
         padding: 1rem;
     }
-
-    .truncate {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+    @media (min-width: 1024px) {
+        .lists {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 </style> 
