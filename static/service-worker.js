@@ -5,6 +5,7 @@ const CACHE_URLS = [
   '/',
   '/f-rod.png',
   '/manifest.json',
+  '/avatar.jpg'
 ];
 
 const API_URLS = [
