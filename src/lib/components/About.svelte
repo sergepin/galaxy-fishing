@@ -2,17 +2,17 @@
     const socialLinks = [
         {
             name: 'LinkedIn',
-            url: 'https://linkedin.com/in/your-profile',
+            url: 'https://linkedin.com/in/sergepind',
             icon: 'linkedin'
         },
         {
             name: 'GitHub',
-            url: 'https://github.com/your-username',
+            url: 'https://github.com/sergepin',
             icon: 'github'
         },
         {
             name: 'Portfolio',
-            url: 'https://your-portfolio.com',
+            url: 'https://sergiopinzon.dev',
             icon: 'globe'
         }
     ];
@@ -21,10 +21,13 @@
 <div class="nes-container is-dark with-title">
     <p class="title">About Me</p>
     <div class="flex flex-col items-center gap-8">
-        <div class="avatar-container">
-            <div class="nes-avatar is-large">
-                <img src="https://via.placeholder.com/128" alt="Profile Avatar" />
-            </div>
+        <div class="flex justify-center">
+            <img 
+                class="w-32 h-32 rounded-full object-cover object-center border-4 border-primary shadow-lg overflow-hidden" 
+                style="aspect-ratio: 1; object-position: 50% 30%;"
+                src="/avatar.jpg" 
+                alt="Profile Avatar" 
+            />
         </div>
         
         <div class="text-center max-w-2xl">
@@ -54,23 +57,6 @@
 </div>
 
 <style>
-    .avatar-container {
-        position: relative;
-        width: 128px;
-        height: 128px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 4px solid var(--primary-color);
-        box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
-        animation: pulse 2s infinite;
-    }
-
-    .avatar-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
     .social-link {
         display: flex;
         align-items: center;
@@ -86,11 +72,5 @@
 
     .social-link i {
         margin-right: 0.25rem;
-    }
-
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
     }
 </style> 

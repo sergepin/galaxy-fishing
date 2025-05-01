@@ -21,14 +21,14 @@
         </div>
     </div>
 
-    <div class="space-y-16">
-        <div class="w-full">
+    <div class="space-y-32">
+        <div class="w-full mt-36">
             <Leaderboard />
         </div>
-        <div class="w-full">
+        <div class="w-full mt-36">
             <Market />
         </div>
-        <div class="w-full">
+        <div class="w-full mt-36">
             <About />
         </div>
     </div>
