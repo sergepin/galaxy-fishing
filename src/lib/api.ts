@@ -18,7 +18,6 @@ export async function fetchMarket(): Promise<MarketResponse> {
     return response.json();
 }
 
-// Cache for offline support
 const cache = new Map<string, { data: any; timestamp: number }>();
 
 export async function fetchWithCache<T>(
@@ -38,7 +37,6 @@ export async function fetchWithCache<T>(
         cache.set(key, { data, timestamp: now });
         return data;
     } catch (error) {
-        // If online fetch fails, return cached data if available
         if (cached) {
             return cached.data;
         }

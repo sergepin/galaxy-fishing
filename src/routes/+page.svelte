@@ -13,7 +13,7 @@
             <div class="message-list">
                 <div class="message">
                     <div class="nes-balloon from-left">
-                        <p class="text-xl">Welcome to Galaxy Fishing! Cast your line and catch the stars!</p>
+                        <p class="text-xl">Welcome to Galaxy Fishing! Power up your rod and reel in cosmic critters!</p>
                     </div>
                     <i class="nes-icon trophy is-large icon-container"></i>
                 </div>

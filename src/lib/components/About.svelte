@@ -13,7 +13,7 @@
         {
             name: 'Portfolio',
             url: 'https://sergiopinzon.dev',
-            icon: 'globe'
+            icon: 'snes-jp-logo'
         }
     ];
 </script>

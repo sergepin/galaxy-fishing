@@ -3,33 +3,21 @@
 @import "tailwindcss/utilities";
 @import 'nes.css/css/nes.min.css';
 
-/* Import NES.css */
-@import url('https://unpkg.com/nes.css@latest/css/nes.min.css');
-
-/* Import component styles */
 @import './lib/styles/market.css';
 @import './lib/styles/leaderboard.css';
 
-/* Legend of Zelda inspired color scheme */
 :root {
-    /* Main colors */
-    --primary-color: #92cc41;    /* Zelda Green */
-    --secondary-color: #209cee;  /* Zelda Blue */
-    --accent-color: #2196F3;     /* Zelda Blue */
-    
-    /* Status colors */
-    --success-color: #92cc41;    /* Light Green */
-    --warning-color: #f7d51d;    /* Amber */
-    --error-color: #e76e55;      /* Red */
-    
-    /* Background and text */
-    --background-color: #0a192f; /* Deep Blue Night */
-    --surface-color: #112240;    /* Darker Blue */
+    --primary-color: #92cc41;
+    --secondary-color: #209cee;
+    --accent-color: #2196F3;
+    --success-color: #92cc41;
+    --warning-color: #f7d51d;
+    --error-color: #e76e55;
+    --background-color: #0a192f;
+    --surface-color: #112240;
     --text-color: #e6f1ff;
     --text-secondary: #8892b0;
     --text-dark: #000000;
-    
-    /* Zelda specific colors */
     --triforce-gold: #FFD700;
     --heart-red: #FF5252;
     --rupee-green: #4CAF50;
@@ -60,7 +48,6 @@ body {
     padding: 1rem;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -73,14 +60,6 @@ body {
     background: var(--primary-color);
     border-radius: 0;
 }
-
-/* Custom animations */
-/* Eliminado la animación de pixelación que causaba el efecto de salto */
-/* @keyframes pixelate {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
-} */
 
 @keyframes glow {
     0% { box-shadow: 0 0 5px var(--triforce-gold); }
@@ -114,7 +93,6 @@ body {
     pointer-events: none;
 }
 
-/* Fix NES.css text colors */
 .nes-balloon {
     background-color: #ffffff !important;
     color: var(--text-dark) !important;
@@ -136,7 +114,6 @@ body {
     background-color: var(--surface-color);
 }
 
-/* Custom text colors */
 .nes-text.is-primary {
     color: var(--rupee-green) !important;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
@@ -161,7 +138,6 @@ body {
     color: var(--text-secondary) !important;
 }
 
-/* Improve readability */
 .nes-text {
     line-height: 1.5;
 }
@@ -185,12 +161,10 @@ body {
     width: fit-content;
 }
 
-/* Custom list styles */
 .lists {
     @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4;
 }
 
-/* Improve table readability */
 .nes-table {
     color: var(--text-color);
     @apply w-full;
@@ -211,22 +185,18 @@ body {
     border-color: var(--primary-color) !important;
 }
 
-/* Responsive text sizes */
 .nes-text {
     @apply text-xs sm:text-sm md:text-base;
 }
 
-/* Container padding */
 .nes-container {
     @apply p-2 sm:p-4 md:p-6;
 }
 
-/* Title sizes */
 .title {
     @apply text-sm sm:text-base md:text-lg;
 }
 
-/* Custom button styles */
 .nes-btn {
     background-color: var(--surface-color) !important;
     color: var(--text-color) !important;
@@ -253,13 +223,11 @@ body {
     animation: pulse 1s infinite;
 }
 
-/* Custom icon colors */
 .nes-icon {
     color: var(--triforce-gold) !important;
     filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
 }
 
-/* Loading animation */
 @keyframes triforce-spin {
     0% { transform: rotate(0deg) scale(1); }
     50% { transform: rotate(180deg) scale(1.2); }
@@ -271,7 +239,6 @@ body {
     color: var(--triforce-gold);
 }
 
-/* Item title styles */
 .item-title {
     @apply text-base sm:text-lg md:text-xl font-bold;
     color: var(--triforce-gold) !important;
@@ -280,7 +247,6 @@ body {
     word-wrap: break-word;
 }
 
-/* Description styles */
 .item-description {
     @apply text-sm sm:text-base;
     color: var(--text-secondary) !important;
