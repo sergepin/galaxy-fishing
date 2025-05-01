@@ -50,18 +50,4 @@
             {/each}
         </div>
     {/if}
-</div>
-
-<style>
-    .lists {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1rem;
-        padding: 1rem;
-    }
-    @media (min-width: 1024px) {
-        .lists {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-</style> 
+</div> 

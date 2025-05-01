@@ -72,17 +72,4 @@
             </div>
         {/if}
     {/if}
-</div>
-
-<style>
-    .overflow-x-auto {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .truncate {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-</style> 
+</div> 
