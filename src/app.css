@@ -5,6 +5,7 @@
 
 @import './lib/styles/market.css';
 @import './lib/styles/leaderboard.css';
+@import './lib/styles/about.css';
 
 :root {
     --primary-color: #92cc41;
@@ -177,6 +178,10 @@ body {
     @apply px-2 py-3 text-xs sm:text-sm md:text-base;
     border-color: var(--primary-color) !important;
 }
+
+.container-spacing {
+    margin-top: 2rem; /* Equivalent to mt-36 */
+  }
 
 .nes-table td {
     background-color: #ffffff !important;

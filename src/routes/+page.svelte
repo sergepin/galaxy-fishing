@@ -22,13 +22,13 @@
     </div>
 
     <div class="space-y-32">
-        <div class="w-full mt-36">
+        <div class="w-full mt-36 container-spacing">
             <Leaderboard />
         </div>
-        <div class="w-full mt-36">
+        <div class="w-full container-spacing">
             <Market />
         </div>
-        <div class="w-full mt-36">
+        <div class="w-full container-spacing">
             <About />
         </div>
     </div>

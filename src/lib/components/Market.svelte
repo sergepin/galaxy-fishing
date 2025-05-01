@@ -20,34 +20,38 @@
     });
 </script>
 
-<div class="nes-container with-title is-centered w-full">
-    <p class="title">Market</p>
-    
+<div class="nes-container with-title is-centered w-full max-w-screen-xl mx-auto p-4">
+    <p class="title text-xl">Market</p>
+
     {#if loading}
-        <div class="nes-container is-centered">
+        <div class="nes-container is-centered mt-8">
             <i class="nes-icon star is-large"></i>
-            <p>Loading...</p>
+            <p class="mt-2">Loading...</p>
         </div>
     {:else if error}
-        <div class="nes-container is-centered is-error">
+        <div class="nes-container is-centered is-error mt-8">
             <p>{error}</p>
         </div>
     {:else}
-        <div class="lists">
+        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-2 mt-6">
             {#each items as item}
-                <div class="nes-container is-rounded is-dark w-full h-full flex flex-col">
-                    <div class="nes-container with-title flex-1 flex flex-col">
-                        <p class="item-title">{item.name}</p>
-                        <p class="item-description flex-1">{item.description}</p>
-                        <span class="nes-text is-info text-xs sm:text-sm mt-1">Type: {item.type}</span>
-                        <div class="nes-container is-rounded is-dark mt-2">
-                            <div class="flex justify-center">
-                                <span class="nes-text is-warning text-xs sm:text-sm whitespace-nowrap">{item.cost} gold</span>
-                            </div>
+                <div class="nes-container is-rounded is-dark flex flex-col h-full min-h-[300px]">
+                    <div class="flex flex-col gap-2 flex-grow">
+                        <p class="item-title font-bold text-lg text-yellow-400">{item.name}</p>
+                        <p class="item-description text-sm text-gray-200">{item.description}</p>
+                        <span class="nes-text is-info text-xs sm:text-sm">Type: {item.type}</span>
+                    </div>
+                    <div class="mt-auto pt-4">
+                        <div class="nes-container is-rounded is-dark flex items-center justify-center gap-1">
+                            <i class="nes-icon coin is-medium mr-8"></i>
+                            <span class="nes-text is-warning text-sm font-semibold whitespace-nowrap ml-1">
+                                {item.cost} gold
+                            </span>
                         </div>
                     </div>
+
                 </div>
             {/each}
         </div>
     {/if}
-</div> 
+</div>
